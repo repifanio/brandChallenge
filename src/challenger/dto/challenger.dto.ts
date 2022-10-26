@@ -1,4 +1,5 @@
 export class ChallengerDto {
+  id: number;
   document: string;
   legalName: string;
   fantasyName: string;

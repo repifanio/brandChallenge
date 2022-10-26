@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Challenge } from '../../challenge/entity/challenge.entity';
 
 @Entity()
 export class Challenger {
@@ -22,4 +23,7 @@ export class Challenger {
 
   @Column({ nullable: true })
   updatedAt?: Date;
+
+  @OneToMany(() => Challenge, (challenge) => challenge.challenger)
+  challenges: Challenger[];
 }
