@@ -12,6 +12,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'a.123456',
       database: 'brand_challenge',
+      logging: false,
       autoLoadEntities: true,
       synchronize: true,
       insecureAuth: true,
