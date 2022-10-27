@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ChallengerDto } from '../dto/challenger.dto';
-import { Challenger } from '../entity/challenger.entity';
+import { Challenger } from '../../shared/entities/challenger.entity';
 
 @Injectable()
 export class InsertChallenger {

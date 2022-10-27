@@ -5,7 +5,7 @@ import { InactiveChallenger } from './services/inativeChallenger.service';
 import { FindChallenger } from './services/findChallenger.service';
 import { ListChallenger } from './services/listChallenger.service';
 import { ChallengerDto } from './dto/challenger.dto';
-import { Challenger } from './entity/challenger.entity';
+import { Challenger } from '../shared/entities/challenger.entity';
 
 @Controller('/challenger')
 export class ChallengerController {

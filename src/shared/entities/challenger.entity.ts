@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { Challenge } from '../../challenge/entity/challenge.entity';
+import { Challenge } from './challenge.entity';
 
 @Entity()
 export class Challenger {

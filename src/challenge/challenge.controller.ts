@@ -14,8 +14,9 @@ import { InactiveChallenge } from './services/inactiveChallenge.service';
 import { ListChallenge } from './services/listChallenge.service';
 import { FindChallenge } from './services/findChallenge.service';
 import { ChallengeDto, HeaderChallengeDto } from './dto/challenge.dto';
-import { Challenge } from './entity/challenge.entity';
-import { Challenger } from '../challenger/entity/challenger.entity';
+import { Challenge } from '../shared/entities/challenge.entity';
+import { Challenger } from '../shared/entities/challenger.entity';
+import { ReturnNewChallenge } from './dto/returnNewChallenge.dto';
 
 @Controller('/challenge')
 export class ChallengeController {
@@ -32,7 +33,7 @@ export class ChallengeController {
   async create(
     @Headers() headers: HeaderChallengeDto,
     @Body() createChallengeDto: ChallengeDto,
-  ): Promise<Challenge> {
+  ): Promise<ReturnNewChallenge> {
     const { challengerId: number } = headers;
     const challenger = await this.findChallenger.run(2);
 

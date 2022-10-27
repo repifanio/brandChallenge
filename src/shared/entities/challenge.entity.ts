@@ -1,5 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { Challenger } from '../../challenger/entity/challenger.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
+import { Challenger } from './challenger.entity';
+import { ChallengeRequirements } from './challenge_requirements.entity';
 
 @Entity()
 export class Challenge {
@@ -26,4 +33,10 @@ export class Challenge {
 
   @ManyToOne(() => Challenger, (challenger) => challenger.challenges)
   challenger: Challenger;
+
+  @OneToMany(
+    () => ChallengeRequirements,
+    (challengeRequriments) => challengeRequriments.challenge,
+  )
+  challengeRequirements: ChallengeRequirements[];
 }

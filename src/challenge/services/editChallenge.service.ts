@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ChallengeDto } from '../dto/challenge.dto';
-import { Challenger } from '../../challenger/entity/challenger.entity';
-import { Challenge } from '../entity/challenge.entity';
+import { Challenger } from '../../shared/entities/challenger.entity';
+import { Challenge } from '../../shared/entities/challenge.entity';
 
 @Injectable()
 export class EditChallenge {

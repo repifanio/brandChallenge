@@ -5,11 +5,15 @@ import { EditChallenger } from './services/editChallenger.service';
 import { InactiveChallenger } from './services/inativeChallenger.service';
 import { FindChallenger } from './services/findChallenger.service';
 import { ListChallenger } from './services/listChallenger.service';
-import { Challenger } from './entity/challenger.entity';
+import { Challenger } from '../shared/entities/challenger.entity';
+import { Requirements } from '../shared/entities/requirements.entity';
+import { ChallengeRequirements } from '../shared/entities/challenge_requirements.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Challenger])],
+  imports: [
+    TypeOrmModule.forFeature([Challenger, Requirements, ChallengeRequirements]),
+  ],
   providers: [
     InsertChallenger,
     EditChallenger,
