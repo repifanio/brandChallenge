@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ChallengeDto } from '../dto/challenge.dto';
-import { ReturnNewChallenge } from '../dto/returnNewChallenge.dto';
+import { ReturnChallenge } from '../dto/returnChallenge.dto';
 import { Challenger } from '../../shared/entities/challenger.entity';
 import { Challenge } from '../../shared/entities/challenge.entity';
 import { ChallengeRequirements } from '../../shared/entities/challenge_requirements.entity';
@@ -20,7 +20,7 @@ export class InsertChallenge {
   async run(
     challenger: Challenger,
     createChallenge: ChallengeDto,
-  ): Promise<ReturnNewChallenge> {
+  ): Promise<ReturnChallenge> {
     const challenge = new Challenge();
 
     try {
