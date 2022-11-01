@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ChallengerModule } from './challenger/challenger.module';
 import { ChallengeModule } from './challenge/challenge.module';
+import { ActivityModule } from './activities/activity.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -19,6 +20,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
     ChallengerModule,
     ChallengeModule,
+    ActivityModule,
   ],
   controllers: [],
   providers: [],

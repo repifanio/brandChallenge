@@ -55,7 +55,7 @@ export class ChallengeController {
   }
 
   @Get('/find/:challengeId')
-  find(@Param('challengeId') challengeId: number): Promise<Challenge> {
+  find(@Param('challengeId') challengeId: number): Promise<ListChallengeDto> {
     return this.findChallenge.run(challengeId);
   }
 
