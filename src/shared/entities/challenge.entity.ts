@@ -7,6 +7,8 @@ import {
 } from 'typeorm';
 import { Challenger } from './challenger.entity';
 import { ChallengeRequirements } from './challenge_requirements.entity';
+import { ActivitiesChallenges } from './activities_challenge.entity';
+import { UserChallenges } from './user_challenges.entity';
 
 @Entity()
 export class Challenge {
@@ -39,4 +41,13 @@ export class Challenge {
     (challengeRequriments) => challengeRequriments.challenge,
   )
   challengeRequirements: ChallengeRequirements[];
+
+  @OneToMany(
+    () => ActivitiesChallenges,
+    (activitiesChallenge) => activitiesChallenge.challenge,
+  )
+  challengeActivities: ActivitiesChallenges[];
+
+  @OneToMany(() => UserChallenges, (userChallenges) => userChallenges.challenge)
+  userChallenges: UserChallenges[];
 }

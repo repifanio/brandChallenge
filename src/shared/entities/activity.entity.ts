@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { ActivitiesChallenges } from './activities_challenge.entity';
 
 @Entity()
 export class Activity {
@@ -43,4 +44,10 @@ export class Activity {
 
   @Column()
   userId: number;
+
+  @OneToMany(
+    () => ActivitiesChallenges,
+    (activitiesChallenges) => activitiesChallenges.activities,
+  )
+  challengeActivities: ActivitiesChallenges[];
 }
