@@ -10,6 +10,9 @@ import { Challenge } from '../shared/entities/challenge.entity';
 import { Challenger } from '../shared/entities/challenger.entity';
 import { Requirements } from '../shared/entities/requirements.entity';
 import { ChallengeRequirements } from '../shared/entities/challenge_requirements.entity';
+import { Users } from '../shared/entities/user.entity';
+import { UserChallenges } from '../shared/entities/user_challenges.entity';
+import { ActivitiesChallenges } from '../shared/entities/activities_challenge.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -19,6 +22,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       Challenger,
       ChallengeRequirements,
       Requirements,
+      Users,
+      UserChallenges,
+      ActivitiesChallenges,
     ]),
   ],
   providers: [

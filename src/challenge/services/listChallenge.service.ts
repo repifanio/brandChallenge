@@ -12,17 +12,26 @@ export class ListChallenge {
     private challengeRepository: Repository<Challenge>,
   ) {}
 
-  async run(): Promise<ListChallengeDto[]> {
+  async run(userId = 0): Promise<ListChallengeDto[]> {
     const convertQueryResult = new ConvertQueryResultToJson();
     const allChallenges: ListChallengeDto[] = [];
 
     try {
       let challengeToReturn: ListChallengeDto;
 
+      const challengeQuery =
+        userId === 0
+          ? 'select c.id, c.challengeName, c.startAt, c.endAt from challenge c'
+          : `select 
+                c.id, c.challengeName, c.startAt, c.endAt 
+             from 
+                challenge c, user_challenges uc, users u 
+             where c.id = uc.challengeId 
+                and u.id = uc.usersId 
+                and u.id = ${userId}`;
+
       const challengesFormatted: ListChallengeDto[] = convertQueryResult.run(
-        await this.challengeRepository.query(
-          `select c.id, c.challengeName, c.startAt, c.endAt from challenge c`,
-        ),
+        await this.challengeRepository.query(challengeQuery),
       );
 
       for (const challenge of challengesFormatted) {

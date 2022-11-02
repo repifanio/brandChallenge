@@ -15,7 +15,6 @@ import { ListChallenge } from './services/listChallenge.service';
 import { FindChallenge } from './services/findChallenge.service';
 import { ChallengeDto, HeaderChallengeDto } from './dto/challenge.dto';
 import { Challenge } from '../shared/entities/challenge.entity';
-import { Challenger } from '../shared/entities/challenger.entity';
 import { ReturnChallenge } from './dto/returnChallenge.dto';
 import { ListChallengeDto } from './dto/listChallenge.dto';
 
@@ -50,8 +49,8 @@ export class ChallengeController {
   }
 
   @Put('/inactive/:challengeId')
-  inactive(@Param('challengeId') challengrId: number): Promise<Challenge> {
-    return this.inactiveChallenge.run(challengrId);
+  inactive(@Param('challengeId') challengeId: number): Promise<Challenge> {
+    return this.inactiveChallenge.run(challengeId);
   }
 
   @Get('/find/:challengeId')
@@ -62,5 +61,10 @@ export class ChallengeController {
   @Get('/list')
   list(): Promise<ListChallengeDto[]> {
     return this.listChallenge.run();
+  }
+
+  @Get('/list-by-user/:userId')
+  listByUser(@Param('userId') userId: number): Promise<ListChallengeDto[]> {
+    return this.listChallenge.run(userId);
   }
 }
